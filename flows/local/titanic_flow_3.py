@@ -14,7 +14,7 @@ class TFlow3(FlowSpec):
         """
         import pandas as pd
 
-        self.df = pd.read_csv("../data/titanic.csv")
+        self.df = pd.read_csv("./data/titanic.csv")
         self.next(self.model1, self.model2)
 
     @step

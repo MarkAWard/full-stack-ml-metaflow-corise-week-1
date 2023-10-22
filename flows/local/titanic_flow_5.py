@@ -14,7 +14,7 @@ class TFlow5(FlowSpec):
         """
         import pandas as pd
 
-        self.df = pd.read_csv("../data/titanic.csv")
+        self.df = pd.read_csv("./data/titanic.csv")
         self.next(self.data_prep)
 
     @step
@@ -65,6 +65,7 @@ class TFlow5(FlowSpec):
 
         self.next(self.choose_model)
 
+    @card
     @step
     def choose_model(self, inputs):
         """

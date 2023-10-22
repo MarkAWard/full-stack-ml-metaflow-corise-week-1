@@ -99,12 +99,12 @@ class BaselineNLPFlow(FlowSpec):
         current.card.append(Table.from_dataframe(self.valdf.head()))
 
         current.card.append(Markdown("## Examples of False Positives"))
-        fpdf = self.valdf.loc[(self.valdf["predicted"] == 1) & (self.valdf["label"] == 0), ["review"]]
-        current.card.append(Table.from_dataframe(fpdf.head()))
+        fpdf = self.valdf.loc[(self.valdf["predicted"] == 1) & (self.valdf["label"] == 0)]
+        current.card.append(Table([fpdf["review"].head().tolist()]))
 
         current.card.append(Markdown("## Examples of False Negatives"))
-        fndf = self.valdf.loc[(self.valdf["predicted"] == 0) & (self.valdf["label"] == 1), ["review"]]
-        current.card.append(Table.from_dataframe(fndf.head()))
+        fndf = self.valdf.loc[(self.valdf["predicted"] == 0) & (self.valdf["label"] == 1)]
+        current.card.append(Table([fndf["review"].head().tolist()]))
 
 
 if __name__ == "__main__":
